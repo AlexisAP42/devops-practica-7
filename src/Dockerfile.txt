@@ -1,0 +1,8 @@
+# Usamos la imagen oficial de PHP con Apache
+FROM php:apache
+
+# Instalamos la extension mysqli para poder conectar con MySQL
+RUN docker-php-ext-install mysqli
+
+# Copiamos nuestro codigo fuente al directorio web por defecto de Apache
+COPY . /var/www/html/

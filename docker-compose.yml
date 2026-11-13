@@ -1,0 +1,17 @@
+services:
+  # Servidor Web (PHP + Apache)
+  web:
+    build: ./src
+    container_name: php_web_practica7
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+  # Servidor de Base de Datos (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: mysql_db_practica7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mi_base_datos
